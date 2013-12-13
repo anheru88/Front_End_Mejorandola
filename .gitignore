@@ -1,2 +1,3 @@
-*.sublime-workspace
 *.sublime-project
+*.sublime-workspace
+/Clases_Anheru88/Clase_5/node_modules
