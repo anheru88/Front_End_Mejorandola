@@ -14,7 +14,7 @@ Puls3.Views.ArticleView = Backbone.View.extend({
 			self.render();
 		});
 
-		this.template = swig.compile($("#Article_tpl").html());
+		this.template = swig.compile($("#ArticleExtended_tpl").html());
 	},
 	navigate : function(){
 		console.log('navigate',this.model.toJSON() );
