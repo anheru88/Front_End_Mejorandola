@@ -13,6 +13,7 @@ $(document).ready(function(){
 		});
 	});
 
+	window.views.articleNew = new Puls3.Views.ArticleNewView( $('#contenido > aside') );
 
 	window.collections.articles.on('add', function(model){
 		var view = new Puls3.Views.ArticleView(model);
