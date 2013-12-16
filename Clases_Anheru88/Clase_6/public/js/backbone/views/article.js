@@ -34,6 +34,7 @@ Puls3.Views.ArticleView = Backbone.View.extend({
 		var votes = this.model.get("votes");
 
 		this.model.set("votes", parseInt(votes, 10) + 1 );
+		this.model.save();
 		return null;
 	},
 	downvote : function(e){
@@ -41,6 +42,7 @@ Puls3.Views.ArticleView = Backbone.View.extend({
 		var votes = this.model.get("votes");
 
 		this.model.set("votes", parseInt(votes, 10) - 1 );
+		this.model.save();
 		return null;
 	},
 	render: function(data) {
