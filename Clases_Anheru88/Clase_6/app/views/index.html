@@ -16,6 +16,12 @@
         <script src="/js/vendor/backbone.js"></script>
         <script src="/js/vendor/swig.js"></script>
 
+        <script src="/js/vendor/socket.io.js"></script>        
+        <script src="/js/vendor/neon.js"></script>        
+        <script src="/js/vendor/CustomEvent.js"></script>        
+        <script src="/js/vendor/CustomEventSupport.js"></script>        
+        <script src="/js/vendor/PonyExpress.js"></script>        
+
         <script src="/js/init.js"></script>
 
         <script src="/js/backbone/models/article.js"></script>
@@ -43,7 +49,6 @@
         </header>   
 
         <section id="contenido">
-
             <aside>
                 <div id="aside_header">
                     <span aria-hidden="true" class="icon-arrow-down"></span>
@@ -51,7 +56,16 @@
                 </div>
                 <div id="aside_body">
                     <p>
-                       Cum horribilem walking dead resurgere de crazed sepulcris creaturis, zombie sicut de grave feeding iride et serpens. Pestilentia, shaun ofthe dead scythe animated corpses ipsa screams. Pestilentia est plague haec decaying ambulabat mortuos. Sicut zeder apathetic malus voodoo. 
+                       <input id="title" type="text" placeholder="Titulo" /> 
+                    </p>
+                    <p>
+                       <input id="tag" type="text" placeholder="Tag" /> 
+                    </p>
+                    <p>
+                       <input id="contenido" type="text" placeholder="Contenido" /> 
+                    </p>
+                    <p>
+                       <button id="create">Crear</button>
                     </p>
                 </div>
             </aside>
@@ -59,19 +73,19 @@
             {% for post in posts %}
 <!--                 <article class="contenido_item">
                     <figure>
-                        <a href="#"><img src="{{ post.image }}"></a>
+                        <a ><img src="{{ post.image }}"></a>
                     </figure>
                     <div class="item_info">
                         <h2>{{ post.title }}</h2>
-                        <p class="item_posted">Posted by <a href="#">{{ post.user }}</a></p>
+                        <p class="item_posted">Posted by <a >{{ post.user }}</a></p>
                         <span aria-hidden="true" class="icon-heart-2"></span>
                     </div>
                     <div class="item_extra">
                         <p class ="extra_tag">{{ post.tag }}</p>
                         <div class="extra_likes">
-                            <a class="likes_up" href="#"><span aria-hidden="true" class="icon-arrow-up"></span></a>
+                            <a class="likes_up" ><span aria-hidden="true" class="icon-arrow-up"></span></a>
                             <div class="likes_numero">{{ post.votes }}</div>
-                            <a class="likes_down" href="#"><span aria-hidden="true" class="icon-arrow-down"></span></a>
+                            <a class="likes_down" ><span aria-hidden="true" class="icon-arrow-down"></span></a>
                         </div>
                     </div>
                 </article> -->
@@ -83,19 +97,19 @@
         <script id="Article_tpl" type="text/template">
             <article class="contenido_item">
                 <figure>
-                    <a href="#"><img src="{{ post.image }}"></a>
+                    <a ><img src="{{ post.image }}"></a>
                 </figure>
                 <div class="item_info">
                     <h2>{{ post.title }}</h2>
-                    <p class="item_posted">Posted by <a href="#">{{ post.user }}</a></p>
+                    <p class="item_posted">Posted by <a >{{ post.user }}</a></p>
                     <span aria-hidden="true" class="icon-heart-2"></span>
                 </div>
                 <div class="item_extra">
                     <p class ="extra_tag">{{ post.tag }}</p>
                     <div class="extra_likes">
-                        <a class="likes_up" href="#"><span aria-hidden="true" class="icon-arrow-up"></span></a>
+                        <a class="likes_up" ><span aria-hidden="true" class="icon-arrow-up"></span></a>
                         <div class="likes_numero">{{ post.votes }}</div>
-                        <a class="likes_down" href="#"><span aria-hidden="true" class="icon-arrow-down"></span></a>
+                        <a class="likes_down" ><span aria-hidden="true" class="icon-arrow-down"></span></a>
                     </div>
                 </div>
             </article>        
@@ -104,11 +118,11 @@
          <script id="ArticleExtended_tpl" type="text/template">
             <article class="contenido_item extended">
                 <figure>
-                    <a href="#"><img src="{{ post.image }}"></a>
+                    <a ><img src="{{ post.image }}"></a>
                 </figure>
                 <div class="item_info">
                     <h2>{{ post.title }}</h2>
-                    <p class="item_posted">Posted by <a href="#">{{ post.user }}</a></p>
+                    <p class="item_posted">Posted by <a >{{ post.user }}</a></p>
                     <span aria-hidden="true" class="icon-heart-2"></span>
                     <div>
                     {% autoescape false %}
@@ -119,9 +133,9 @@
                 <div class="item_extra">
                     <p class ="extra_tag">{{ post.tag }}</p>
                     <div class="extra_likes">
-                        <a class="likes_up" href="#"><span aria-hidden="true" class="icon-arrow-up"></span></a>
+                        <a class="likes_up" ><span aria-hidden="true" class="icon-arrow-up"></span></a>
                         <div class="likes_numero">{{ post.votes }}</div>
-                        <a class="likes_down" href="#"><span aria-hidden="true" class="icon-arrow-down"></span></a>
+                        <a class="likes_down" ><span aria-hidden="true" class="icon-arrow-down"></span></a>
                     </div>
                 </div>
             </article>        
