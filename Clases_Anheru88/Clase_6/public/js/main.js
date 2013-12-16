@@ -1,7 +1,18 @@
 $(document).ready(function(){
 	console.log('Starting app');
 
+	window.ponyExpress = new PonyExpress({
+		io : window.location.origin
+	});
+
 	window.collections.articles = new Puls3.Collections.ArticlesCollection();
+
+	window.ponyExpress.bind('connect', function(event) {
+		window.plugs.article = new PonyExpress.BackbonePlug({
+			collection : window.collections.articles
+		});
+	});
+
 
 	window.collections.articles.on('add', function(model){
 		var view = new Puls3.Views.ArticleView(model);
